@@ -26,7 +26,7 @@ namespace BooksManager
             InitializeComponent();
             try
             {
-                List<Book> books = Book.GetAllBooks();
+              List<Book> books = Book.GetAllBooks();
             }
             catch(Exception e)
             {

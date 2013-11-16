@@ -9,6 +9,5 @@ namespace BooksManager.ViewModel
 {
     class BookViewModel : ObservableObject
     {
-        ObservableCollection<Book> _books;
     }
 }
