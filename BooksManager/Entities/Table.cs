@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BooksManager.Entities
 {
-    abstract class Table
+    class Table
     {
         private string _tableName;
     }
