@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 
 namespace BooksManager
 {
+    using Entities;
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -23,6 +24,20 @@ namespace BooksManager
         public MainWindow()
         {
             InitializeComponent();
+            try
+            {
+                List<Book> books = Book.GetAllBooks();
+
+                foreach(var book in books)
+                {
+                    MessageBox.Show(book.ToString());
+                }
+
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
         }
     }
 }
