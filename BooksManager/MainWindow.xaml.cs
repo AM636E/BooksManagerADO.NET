@@ -27,12 +27,6 @@ namespace BooksManager
             try
             {
                 List<Book> books = Book.GetAllBooks();
-
-                foreach(var book in books)
-                {
-                    MessageBox.Show(book.ToString());
-                }
-
             }
             catch(Exception e)
             {

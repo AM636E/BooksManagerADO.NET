@@ -83,6 +83,21 @@ namespace BooksManager.Entities
             return result;
         }
 
+        public static System.Collections.ObjectModel.ObservableCollection<Book> GetAllBooksObservable()
+        {
+            DataSet books = Book.ExecuteQuery("SELECT * FROM dbo.Books");
+            System.Collections.ObjectModel.ObservableCollection<Book> result = new System.Collections.ObjectModel.ObservableCollection<Book>();
+
+            DataTable dt = books.Tables[0];
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                result.Add(new Book((int)dr["bid"], (string)dr["bookname"], (int)dr["booksize"]));
+            }
+
+            return result;
+        }
+
         public override string ToString()
         {
             return String.Format("{0} {1} {2}", _id, _name, _pages);
