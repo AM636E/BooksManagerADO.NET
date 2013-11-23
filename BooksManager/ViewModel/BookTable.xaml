@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="BooksManager.ViewModel.BookTable"
+              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:ViewModel="clr-namespace:BooksManager.ViewModel" mc:Ignorable="d" 
+             d:DesignHeight="500"
+             d:DesignWidth="500"
+             d:DataContext="{d:DesignInstance ViewModel:BookViewModel}">
+    <Grid>
+        <StackPanel Height="336">
+            <DataGrid AutoGenerateColumns="True" ItemsSource="{Binding Books}" IsReadOnly="False">
+                
+            </DataGrid>
+            <Button Command="{Binding LoadCommand}" Margin="5">Load</Button>
+        </StackPanel>
+    </Grid>
+</UserControl>

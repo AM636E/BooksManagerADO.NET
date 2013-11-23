@@ -8,6 +8,5 @@ namespace BooksManager.Entities
 {
     class Table
     {
-        private string _tableName;
     }
 }

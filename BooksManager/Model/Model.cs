@@ -11,9 +11,13 @@ namespace BooksManager.Model
     class BooksModel : IDisposable
     {
         private ObservableCollection<Book> _books;
-        private int ________;
 
-        public ObservableCollection<Book> Books { get { return _books; } }
+        public ObservableCollection<Book> Books { get { return _books; } set { _books = value; } }
+
+        public BooksModel()
+        {
+            _books = new ObservableCollection<Book>();
+        }
 
         public void AddNewBook(Book book)
         {
@@ -22,7 +26,14 @@ namespace BooksManager.Model
 
         public void LoadBooks()
         {
-            _books = Book.GetAllBooksObservable();
+          //  _books = new ObservableCollection<Book>();
+            _books.Clear();
+            var tmp = Book.GetAllBooksObservable();
+
+            foreach(Book b in tmp)
+            {
+                _books.Add(b);
+            }
         }
 
         public void Dispose()
@@ -33,6 +44,18 @@ namespace BooksManager.Model
         ~BooksModel()
         {
             Dispose();
+        }
+
+        public override string ToString()
+        {
+            string output = "";
+
+            foreach(Book book in _books)
+            {
+                output += book.ToString() + '\n';
+            }
+
+            return output;
         }
     }
 }

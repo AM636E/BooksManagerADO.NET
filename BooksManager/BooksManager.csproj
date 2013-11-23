@@ -34,11 +34,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="ObjectDumper">
       <HintPath>..\packages\ObjectDumper.1.0.0.12\lib\net35-Client\ObjectDumper.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -59,6 +69,27 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Author.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Author.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Author.cs">
+      <DependentUpon>Author.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Author.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Author.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Author1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Author.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\BookTable.xaml.cs">
+      <DependentUpon>BookTable.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\BookViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -75,6 +106,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ViewModel\BookTable.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Model.cs" />
@@ -96,6 +131,23 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="Author.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Author.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Author.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Author.edmx</DependentUpon>
+      <LastGenOutput>Author.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Author.edmx.diagram">
+      <DependentUpon>Author.edmx</DependentUpon>
+    </None>
+    <None Include="Author.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Author.edmx</DependentUpon>
+      <LastGenOutput>Author1.cs</LastGenOutput>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -106,7 +158,10 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
