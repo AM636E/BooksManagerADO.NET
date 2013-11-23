@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BooksManager
+namespace BooksManager.Entities
 {
     using System;
     using System.Collections.Generic;
